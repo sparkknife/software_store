@@ -49,9 +49,12 @@ if (!$product) {
     </h4>
 
     <?php if(isset($_SESSION['user_id'])): ?>
-      <a href="checkout.php?id=<?= $product['id'] ?>" class="btn btn-success btn-lg">
-        🛒 خرید
-      </a>
+    <a href="cart.php?add=<?= $product['id'] ?>" class="btn btn-success btn-lg">
+    🛒 افزودن به سبد
+    </a>
+    <a href="cart.php" class="btn btn-outline-primary btn-lg ms-2">
+     مشاهده سبد
+    </a>
     <?php else: ?>
       <a href="login.php" class="btn btn-warning btn-lg">
         برای خرید ابتدا وارد شو
