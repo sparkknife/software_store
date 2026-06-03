@@ -2,7 +2,7 @@
 
 require_once 'auth.php';
 require_once '../config/db.php';
-require_once '../includes/header.php';
+require_once 'header.php';
 
 // حذف محصول
 if (isset($_GET['delete'])) {
@@ -59,4 +59,4 @@ $products = mysqli_query($conn,
   </div>
 </div>
 
-<?php require_once '../includes/footer.php'; ?>
+<?php require_once 'footer.php'; ?>

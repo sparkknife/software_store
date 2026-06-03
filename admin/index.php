@@ -1,7 +1,7 @@
 <?php
 require_once 'auth.php';
 require_once '../config/db.php';
-require_once '../includes/header.php';
+require_once 'header.php';
 
 $total_products = mysqli_fetch_row(mysqli_query($conn, "SELECT COUNT(*) FROM products"))[0];
 $total_orders   = mysqli_fetch_row(mysqli_query($conn, "SELECT COUNT(*) FROM orders"))[0];
@@ -54,4 +54,4 @@ $total_income   = mysqli_fetch_row(mysqli_query($conn, "SELECT SUM(total) FROM o
   <a href="users.php" class="btn btn-info text-white">مدیریت کاربران</a>
 </div>
 
-<?php require_once '../includes/footer.php'; ?>
+<?php require_once 'footer.php'; ?>
