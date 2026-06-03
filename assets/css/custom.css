@@ -1,0 +1,108 @@
+* {
+  font-family: 'Vazirmatn', sans-serif;
+}
+
+body {
+  background-color: #f8f9fa;
+  color: #2c3e50;
+}
+
+/* navbar */
+.navbar {
+  background: linear-gradient(135deg, #2c3e50, #3498db) !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  padding: 14px 0;
+}
+
+.navbar-brand {
+  font-size: 1.4rem;
+}
+
+/* کارت */
+.card {
+  border: none !important;
+  border-radius: 12px !important;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12) !important;
+}
+
+/* دکمه‌ها */
+.btn-primary {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border: none;
+  border-radius: 8px;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #27ae60, #219a52);
+  border: none;
+  border-radius: 8px;
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* هیرو */
+.hero {
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  color: white;
+  padding: 60px 0;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+/* فوتر */
+footer {
+  background: #2c3e50 !important;
+  margin-top: 4rem;
+}
+
+/* صفحه‌بندی */
+.pagination .page-link {
+  border-radius: 8px !important;
+  margin: 0 3px;
+  border: none;
+  color: #3498db;
+}
+
+.pagination .page-item.active .page-link {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border: none;
+}
+
+/* input */
+.form-control,
+.form-select {
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  padding: 10px 14px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.15);
+}
+
+.alert {
+  border-radius: 10px;
+  border: none;
+}
+
+.badge {
+  border-radius: 6px;
+  padding: 5px 10px;
+}

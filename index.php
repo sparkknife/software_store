@@ -2,6 +2,8 @@
 require_once 'config/db.php';
 require_once 'includes/header.php';
 
+
+
 // گرفتن دسته‌بندی‌ها
 $categories = mysqli_query($conn, "SELECT * FROM categories");
 
@@ -41,6 +43,14 @@ $products = mysqli_query($conn,
      LIMIT $per_page OFFSET $offset"
 );
 ?>
+
+<!-- هیرو -->
+<div class="hero mb-4">
+  <div class="container">
+    <h1>💿 فروشگاه نرم‌افزار</h1>
+    <p class="lead opacity-75">بهترین نرم‌افزارها با بهترین قیمت</p>
+  </div>
+</div>
 
 <!-- جستجو -->
 <form method="GET" class="mb-4">
