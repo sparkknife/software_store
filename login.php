@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user   = mysqli_fetch_assoc($result);
 
         if ($user && password_verify($password, $user['password'])) {
-            session_start();
+            
             $_SESSION['user_id']   = $user['id'];
             $_SESSION['user_name'] = $user['name'];
             $_SESSION['user_role'] = $user['role'];
@@ -36,11 +36,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<div class="row justify-content-center">
-  <div class="col-md-5">
-    <div class="card shadow">
-      <div class="card-body p-4">
-        <h4 class="mb-4 text-center">ورود</h4>
+<div class="row justify-content-center mt-5">
+  <div class="col-md-5 col-lg-4">
+    <div class="card auth-card">
+      <div class="card-header">
+        <div style="font-size:2.5rem">💿</div>
+        <h4 class="mt-2">ورود به حساب</h4>
+        <p class="opacity-75 mb-0 small">خوش برگشتی!</p>
+      </div>
+      <div class="card-body">
 
         <?php if($error): ?>
           <div class="alert alert-danger"><?= $error ?></div>
@@ -49,21 +53,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form method="POST">
           <div class="mb-3">
             <label class="form-label">ایمیل</label>
-            <input type="email" name="email" class="form-control" required>
+            <input type="email" name="email" class="form-control" 
+                   placeholder="example@email.com" required>
           </div>
-          <div class="mb-3">
+          <div class="mb-4">
             <label class="form-label">پسورد</label>
-            <input type="password" name="password" class="form-control" required>
+            <input type="password" name="password" class="form-control"
+                   placeholder="••••••••" required>
           </div>
-          <button type="submit" class="btn btn-primary w-100">ورود</button>
+          <button type="submit" class="btn btn-primary w-100 py-2">ورود</button>
         </form>
 
-        <p class="text-center mt-3">
-          حساب نداری؟ <a href="register.php">ثبت‌نام</a>
+        <hr class="my-3">
+        <p class="text-center text-muted mb-0">
+          حساب نداری؟ <a href="register.php" class="text-decoration-none fw-600">ثبت‌نام</a>
         </p>
       </div>
     </div>
   </div>
 </div>
-
-<?php require_once 'includes/footer.php'; ?>

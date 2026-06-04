@@ -98,32 +98,28 @@ $products = mysqli_query($conn,
   <div class="row g-4">
     <?php while($p = mysqli_fetch_assoc($products)): ?>
       <div class="col-md-3">
-        <div class="card h-100 shadow-sm">
-          <div class="bg-secondary text-white text-center py-4">
-            <span style="font-size:3rem">💿</span>
-          </div>
-          <div class="card-body d-flex flex-column">
-            <span class="badge bg-info text-dark mb-2">
-              <?= htmlspecialchars($p['cat_name']) ?>
-            </span>
-            <h6 class="card-title"><?= htmlspecialchars($p['name']) ?></h6>
-            <small class="text-muted mb-2">
-              نسخه: <?= htmlspecialchars($p['version']) ?>
-            </small>
-            <p class="card-text text-muted small flex-grow-1">
-              <?= htmlspecialchars(mb_substr($p['description'], 0, 60)) ?>...
-            </p>
-            <div class="d-flex justify-content-between align-items-center mt-2">
-              <strong class="text-success">
-                <?= number_format($p['price']) ?> تومان
-              </strong>
-              <a href="product.php?id=<?= $p['id'] ?>" class="btn btn-primary btn-sm">
-                مشاهده
-              </a>
-            </div>
-          </div>
-        </div>
+  <div class="card product-card h-100">
+    <div class="product-card-icon default">
+      💿
+    </div>
+    <div class="card-body d-flex flex-column">
+      <span class="badge bg-primary bg-opacity-10 text-primary mb-2 align-self-start">
+        <?= htmlspecialchars($p['cat_name']) ?>
+      </span>
+      <h6 class="card-title"><?= htmlspecialchars($p['name']) ?></h6>
+      <small class="text-muted mb-2">نسخه <?= htmlspecialchars($p['version']) ?></small>
+      <p class="card-text text-muted small flex-grow-1">
+        <?= htmlspecialchars(mb_substr($p['description'], 0, 70)) ?>...
+      </p>
+      <div class="d-flex justify-content-between align-items-center mt-3">
+        <span class="price"><?= number_format($p['price']) ?> ت</span>
+        <a href="product.php?id=<?= $p['id'] ?>" class="btn btn-primary btn-sm px-3">
+          مشاهده
+        </a>
       </div>
+    </div>
+  </div>
+</div>
     <?php endwhile; ?>
   </div>
 
