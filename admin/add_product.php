@@ -6,8 +6,6 @@ require_once 'header.php';
 $error   = '';
 $success = '';
 
-$categories = mysqli_query($conn, "SELECT * FROM categories");
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name        = trim($_POST['name']);
     $description = trim($_POST['description']);
@@ -16,10 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $category_id = intval($_POST['category_id']);
     $file_path   = null;
 
-    // آپلود فایل
     if (isset($_FILES['file']) && $_FILES['file']['error'] === 0) {
-        $filename  = time() . '_' . basename($_FILES['file']['name']);
-        $dest      = __DIR__ . '/../downloads/' . $filename;
+        $filename = time() . '_' . basename($_FILES['file']['name']);
+        $dest     = __DIR__ . '/../downloads/' . $filename;
         if (move_uploaded_file($_FILES['file']['tmp_name'], $dest)) {
             $file_path = $filename;
         }
@@ -31,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = mysqli_prepare($conn,
             "INSERT INTO products (category_id, name, description, version, price, file_path) 
              VALUES (?, ?, ?, ?, ?, ?)");
-        mysqli_stmt_bind_param($stmt, 'isssds', 
+        mysqli_stmt_bind_param($stmt, 'isssds',
             $category_id, $name, $description, $version, $price, $file_path);
 
         if (mysqli_stmt_execute($stmt)) {
@@ -41,6 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+
+// دسته‌بندی‌ها رو اینجا میگیریم (بعد از POST)
+$categories = mysqli_query($conn, "SELECT * FROM categories");
 ?>
 
 <div class="d-flex justify-content-between mb-4">
@@ -63,18 +63,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label class="form-label">نام محصول *</label>
         <input type="text" name="name" class="form-control" required>
       </div>
+
       <div class="mb-3">
-        <label class="form-label">دسته‌بندی *</label>
-        <select name="category_id" class="form-select" required>
-          <?php while($cat = mysqli_fetch_assoc($categories)): ?>
-            <option value="<?= $cat['id'] ?>"><?= htmlspecialchars($cat['name']) ?></option>
-          <?php endwhile; ?>
-        </select>
-      </div>
+  <label class="form-label">دسته‌بندی *</label>
+  <div class="custom-select-wrapper">
+    <div class="custom-select">-- انتخاب دسته‌بندی --</div>
+    <div class="custom-select-dropdown"></div>
+    <select name="category_id" required>
+      <option value="">-- انتخاب دسته‌بندی --</option>
+      <?php while($cat = mysqli_fetch_assoc($categories)): ?>
+        <option value="<?= $cat['id'] ?>">
+          <?= htmlspecialchars($cat['name']) ?>
+        </option>
+      <?php endwhile; ?>
+    </select>
+  </div>
+</div>
+
       <div class="mb-3">
         <label class="form-label">توضیحات</label>
         <textarea name="description" class="form-control" rows="3"></textarea>
       </div>
+
       <div class="row">
         <div class="col-md-6 mb-3">
           <label class="form-label">نسخه</label>
@@ -85,10 +95,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <input type="number" name="price" class="form-control" required>
         </div>
       </div>
+
       <div class="mb-3">
         <label class="form-label">فایل نرم‌افزار</label>
         <input type="file" name="file" class="form-control">
       </div>
+
       <button type="submit" class="btn btn-success w-100">ثبت محصول</button>
     </form>
 

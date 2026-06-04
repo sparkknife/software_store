@@ -90,16 +90,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <div class="mb-3">
         <label class="form-label">دسته‌بندی *</label>
-        <select name="category_id" class="form-select" required>
-          <?php
-          mysqli_data_seek($categories, 0);
-          while($cat = mysqli_fetch_assoc($categories)): ?>
-            <option value="<?= $cat['id'] ?>"
-              <?= $cat['id'] == $product['category_id'] ? 'selected' : '' ?>>
-              <?= htmlspecialchars($cat['name']) ?>
-            </option>
-          <?php endwhile; ?>
-        </select>
+        <div class="mb-3">
+  <label class="form-label">دسته‌بندی *</label>
+  <div class="custom-select-wrapper">
+    <div class="custom-select">-- انتخاب دسته‌بندی --</div>
+    <div class="custom-select-dropdown"></div>
+    <select name="category_id" required>
+      <option value="">-- انتخاب دسته‌بندی --</option>
+      <?php while($cat = mysqli_fetch_assoc($categories)): ?>
+        <option value="<?= $cat['id'] ?>">
+          <?= htmlspecialchars($cat['name']) ?>
+        </option>
+      <?php endwhile; ?>
+    </select>
+  </div>
+</div>
       </div>
       <div class="mb-3">
         <label class="form-label">توضیحات</label>

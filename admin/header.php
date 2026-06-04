@@ -27,6 +27,53 @@ if (session_status() === PHP_SESSION_NONE) {
 
   <style>
     * { font-family: 'Vazirmatn', sans-serif !important; }
+    .custom-select-wrapper {
+  position: relative;
+}
+
+.custom-select-wrapper select {
+  display: none;
+}
+
+.custom-select {
+  background: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+  position: relative;
+  color: #212529;
+}
+
+.custom-select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  z-index: 9999;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.custom-select-dropdown div {
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #212529;
+}
+
+.custom-select-dropdown div:hover {
+  background: #f0f4ff;
+  color: #3498db;
+}
+
+.custom-select-open .custom-select-dropdown {
+  display: block;
+}
   </style>
 </head>
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
