@@ -30,7 +30,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $price       = floatval($_POST['price']);
     $category_id = intval($_POST['category_id']);
     $file_path   = $product['file_path']; // فایل قبلی رو نگه میداره
+    $image_path = $product['image']; // عکس قبلی رو نگه میداره
 
+    if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
+    $allowed  = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+    $mime     = mime_content_type($_FILES['image']['tmp_name']);
+    if (in_array($mime, $allowed)) {
+        $ext     = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+        $imgName = time() . '_' . uniqid() . '.' . $ext;
+        $imgDest = __DIR__ . '/../uploads/products/' . $imgName;
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $imgDest)) {
+            // عکس قدیمی حذف بشه
+            if ($product['image']) {
+                $old = __DIR__ . '/../uploads/products/' . $product['image'];
+                if (file_exists($old)) unlink($old);
+            }
+            $image_path = $imgName;
+        }
+    }
+    }
+
+    // UPDATE query
+    $stmt = mysqli_prepare($conn,
+    "UPDATE products 
+     SET category_id=?, name=?, description=?, version=?, price=?, image=?, file_path=?
+     WHERE id=?");
+    mysqli_stmt_bind_param($stmt, 'isssdss' . 'i',
+    $category_id, $name, $description, $version, $price, $image_path, $file_path, $id);
     // اگه فایل جدید آپلود شد
     if (isset($_FILES['file']) && $_FILES['file']['error'] === 0) {
         $filename = time() . '_' . basename($_FILES['file']['name']);
@@ -64,8 +90,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = 'خطا در ویرایش محصول';
         }
     }
-}
-?>
+    }
+    ?>
 
 <div class="d-flex justify-content-between mb-4">
   <h4>✏️ ویرایش محصول</h4>
@@ -124,6 +150,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                  value="<?= $product['price'] ?>" required>
         </div>
       </div>
+      <!-- عکس محصول -->
+<div class="mb-3">
+  <label class="form-label">
+    <i class="bi bi-image me-1"></i> عکس محصول
+  </label>
+  <?php if($product['image']): ?>
+    <div class="mb-2">
+      <img src="/software_store/uploads/products/<?= $product['image'] ?>"
+           style="width:100px; height:100px; object-fit:cover; border-radius:12px;">
+      <small class="text-muted d-block mt-1">عکس فعلی</small>
+    </div>
+  <?php endif; ?>
+  <input type="file" name="image" class="form-control" accept="image/*"
+         onchange="previewImage(this)">
+  <div id="imagePreview" class="mt-2" style="display:none">
+    <img id="preview" src="" alt="preview"
+         style="width:100px; height:100px; object-fit:cover; border-radius:12px;">
+  </div>
+</div>
       <div class="mb-3">
         <label class="form-label">فایل جدید نرم‌افزار</label>
         <input type="file" name="file" class="form-control">
