@@ -1,283 +1,292 @@
 /* =====================
-   فونت و پایه
+   فونت، رنگ‌ها و پایه
    ===================== */
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --accent: #0f766e;
+  --success: #059669;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+  --dark: #111827;
+  --muted: #64748b;
+  --surface: #ffffff;
+  --page-bg: #f6f8fb;
+  --soft-border: #e5e7eb;
+  --card-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
 
 * {
   font-family: 'Vazirmatn', sans-serif;
   box-sizing: border-box;
 }
 
-:root {
-  --primary:      #4361ee;
-  --primary-dark: #3a0ca3;
-  --secondary:    #7209b7;
-  --accent:       #f72585;
-  --success:      #06d6a0;
-  --dark:         #1a1a2e;
-  --light:        #f8f9ff;
-  --card-shadow:  0 8px 32px rgba(67,97,238,0.10);
+body {
+  min-height: 100vh;
+  background: var(--page-bg);
+  color: #1f2937;
 }
 
-body {
-  background: var(--light);
-  color: #2d2d2d;
+.site-main {
+  margin-top: 28px;
+  min-height: calc(100vh - 180px);
 }
 
 /* =====================
    Navbar
    ===================== */
-.navbar {
-  background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%) !important;
-  box-shadow: 0 4px 20px rgba(67,97,238,0.2);
-  padding: 16px 0;
+.site-navbar {
+  background: linear-gradient(135deg, #111827 0%, #1d4ed8 55%, #0f766e 100%) !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.18);
+  padding: 14px 0;
 }
 
 .navbar-brand {
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  font-size: 1.25rem;
   color: #fff !important;
 }
 
 .navbar .btn {
-  border-radius: 20px;
-  padding: 6px 16px;
+  border-radius: 8px;
+  padding: 7px 14px;
   font-size: 0.875rem;
-  transition: all 0.2s;
 }
 
-.navbar .btn:hover {
-  transform: translateY(-1px);
+.navbar-user {
+  padding: 6px 4px;
+}
+
+.navbar-toggler {
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 8px;
 }
 
 /* =====================
    Hero
    ===================== */
 .hero {
-  background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 60%, var(--secondary) 100%);
+  background:
+    linear-gradient(135deg, rgba(17,24,39,0.94), rgba(37,99,235,0.88)),
+    radial-gradient(circle at 15% 20%, rgba(15,118,110,0.45), transparent 36%);
   color: white;
-  padding: 70px 0;
-  border-radius: 20px;
-  margin-bottom: 2.5rem;
+  padding: 56px 18px;
+  border-radius: 8px;
   text-align: center;
-  position: relative;
   overflow: hidden;
+  box-shadow: var(--card-shadow);
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
-  pointer-events: none;
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #bfdbfe;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
 }
 
 .hero h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
+  font-size: 2.45rem;
+  font-weight: 800;
   margin-bottom: 0.8rem;
-  position: relative;
 }
 
 .hero p {
-  font-size: 1.1rem;
-  opacity: 0.85;
-  position: relative;
+  font-size: 1.05rem;
+  opacity: 0.86;
 }
 
 .hero-search {
-  max-width: 500px;
+  max-width: 560px;
   margin: 1.5rem auto 0;
-  position: relative;
 }
 
 .hero-search .form-control {
-  border-radius: 30px 0 0 30px !important;
+  border-radius: 0px 8px 8px 0px !important;
   border: none !important;
-  padding: 12px 20px !important;
-  font-size: 1rem;
+  padding: 13px 16px !important;
   box-shadow: none !important;
 }
 
 .hero-search .btn {
-  border-radius: 0 30px 30px 0 !important;
-  padding: 12px 24px;
-  background: var(--accent);
+  border-radius: 8px 0px 0px 8px !important;
+  padding: 12px 22px;
+  background: var(--warning);
   border: none;
-  color: white;
+  color: #111827;
 }
 
 .hero-search .btn:hover {
-  background: #d4006f;
-  transform: none;
+  background: #fbbf24;
 }
 
 /* =====================
-   دسته‌بندی‌ها
-   ===================== */
-.category-btn {
-  border-radius: 20px !important;
-  padding: 6px 18px !important;
-  font-size: 0.875rem;
-  transition: all 0.2s;
-  font-weight: 500;
-}
-
-.category-btn:hover {
-  transform: translateY(-2px);
-}
-
-/* =====================
-   کارت محصول
-   ===================== */
-.product-card {
-  border: none !important;
-  border-radius: 16px !important;
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-  background: #fff;
-  box-shadow: var(--card-shadow);
-}
-
-.product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(67,97,238,0.18) !important;
-}
-
-.product-card-icon {
-  padding: 2rem;
-  text-align: center;
-  min-height: 140px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.product-card-icon.security { background: linear-gradient(135deg, #1a1a2e, #16213e); }
-.product-card-icon.office   { background: linear-gradient(135deg, #0f3460, #533483); }
-.product-card-icon.design   { background: linear-gradient(135deg, #7209b7, #f72585); }
-.product-card-icon.dev      { background: linear-gradient(135deg, #06d6a0, #4361ee); }
-.product-card-icon.default  { background: linear-gradient(135deg, #4361ee, #7209b7); }
-
-.product-card .card-body {
-  padding: 1.2rem;
-}
-
-.product-card .badge {
-  border-radius: 20px;
-  padding: 4px 12px;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.product-card .card-title {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0.5rem 0 0.3rem;
-}
-
-.product-card .price {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--primary);
-}
-
-/* =====================
-   دکمه‌ها
+   دکمه‌ها و فرم‌ها
    ===================== */
 .btn {
-  transition: all 0.2s;
-  font-weight: 500;
+  border-radius: 8px;
+  transition: transform 0.18s, box-shadow 0.18s, opacity 0.18s;
+  font-weight: 600;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  border: none;
-  border-radius: 10px;
-}
-
-.btn-success {
-  background: linear-gradient(135deg, #06d6a0, #05b386);
-  border: none;
-  border-radius: 10px;
-}
-
-.btn-danger {
-  border-radius: 10px;
-}
-
-.btn-warning {
-  border-radius: 10px;
-  font-weight: 600;
-}
-
-.btn-outline-secondary {
-  border-radius: 10px;
-}
-
-.btn-outline-primary {
-  border-radius: 10px;
-  color: var(--primary);
+  background: var(--primary);
   border-color: var(--primary);
 }
 
-.btn-outline-danger {
-  border-radius: 10px;
+.btn-primary:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
 }
 
-.btn-primary:hover,
-.btn-success:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+.btn-success {
+  background: var(--success);
+  border-color: var(--success);
 }
 
-.btn-outline-secondary:hover,
-.btn-outline-primary:hover,
-.btn-outline-danger:hover {
+.btn:hover {
   transform: translateY(-1px);
 }
 
-/* =====================
-   فرم‌ها
-   ===================== */
 .form-control,
 .form-select {
-  border-radius: 10px;
-  border: 1.5px solid #e0e0e0;
-  padding: 11px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--soft-border);
+  padding: 11px 14px;
   font-size: 0.95rem;
-  transition: border 0.2s, box-shadow 0.2s;
 }
 
 .form-control:focus,
 .form-select:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(67,97,238,0.12);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
 
 .form-label {
-  font-weight: 500;
-  color: #444;
+  font-weight: 600;
+  color: #374151;
   margin-bottom: 6px;
 }
 
 /* =====================
-   کارت لاگین و ثبت‌نام
+   دسته‌بندی و عنوان صفحه
    ===================== */
+.category-btn {
+  border-radius: 8px !important;
+  padding: 7px 16px !important;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.page-title i {
+  font-size: 1.75rem;
+  color: var(--primary);
+}
+
+/* =====================
+   کارت محصول
+   ===================== */
+.card {
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: var(--card-shadow);
+}
+
+.product-card {
+  overflow: hidden;
+  background: var(--surface);
+  transition: transform 0.22s, box-shadow 0.22s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.13);
+}
+
+.product-card-image {
+  width: 100%;
+  height: 152px;
+  object-fit: cover;
+  background: #e5e7eb;
+}
+
+.product-card-icon {
+  min-height: 152px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e3a8a, #0f766e);
+}
+
+.product-card-icon i {
+  font-size: 3rem;
+  color: #fff;
+}
+
+.product-card .card-body {
+  padding: 1.1rem;
+}
+
+.product-card .badge,
+.product-detail-badge {
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-weight: 600;
+}
+
+.product-card .card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0.35rem 0;
+  line-height: 1.7;
+}
+
+.product-card .price {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+/* =====================
+   جزئیات محصول
+   ===================== */
+.product-detail-image {
+  height: 320px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+}
+
+.product-detail-icon {
+  height: 320px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  background: linear-gradient(135deg, #1e3a8a, #0f766e);
+}
+
+.product-description {
+  max-width: 760px;
+}
+
+/* =====================
+   ورود، ثبت‌نام و checkout
+   ===================== */
+.auth-shell {
+  margin-top: 42px;
+}
+
 .auth-card {
-  border: none;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(67,97,238,0.12);
   overflow: hidden;
 }
 
 .auth-card .card-header {
-  background: linear-gradient(135deg, var(--dark), var(--primary));
+  background: linear-gradient(135deg, #111827, #2563eb);
   color: white;
   text-align: center;
   padding: 2rem;
@@ -286,167 +295,101 @@ body {
 
 .auth-card .card-header h4 {
   margin: 0;
-  font-weight: 700;
-  font-size: 1.5rem;
+  font-weight: 800;
 }
 
-.auth-card .card-body {
-  padding: 2rem;
+.auth-card .card-body,
+.checkout-card .card-body {
+  padding: 1.75rem;
+}
+
+.order-summary-row {
+  gap: 16px;
 }
 
 /* =====================
-   صفحه محصول
+   جدول، پیام‌ها و حالت خالی
    ===================== */
-.product-detail-icon {
-  border-radius: 20px;
-  padding: 3rem;
-  text-align: center;
-  font-size: 6rem;
-  background: linear-gradient(135deg, var(--dark), var(--primary));
+.table {
+  margin-bottom: 0;
 }
 
-.product-detail-badge {
-  border-radius: 20px;
-  padding: 6px 16px;
+.table thead th {
+  background: #f8fafc;
+  border: none;
+  color: #475569;
+  font-weight: 700;
+}
+
+.table tbody td {
+  border-color: #edf2f7;
+  vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+  background: #f8fafc;
+}
+
+.alert {
+  border: none;
+  border-radius: 8px;
+}
+
+.badge {
+  border-radius: 8px;
+  padding: 5px 10px;
+}
+
+.empty-state i {
+  font-size: 3.75rem;
+  color: #94a3b8;
 }
 
 /* =====================
    صفحه‌بندی
    ===================== */
 .pagination .page-link {
-  border-radius: 10px !important;
-  margin: 0 3px;
+  border-radius: 8px !important;
   border: none;
   color: var(--primary);
   background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  transition: all 0.2s;
-}
-
-.pagination .page-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(67,97,238,0.2);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
 }
 
 .pagination .page-item.active .page-link {
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  background: var(--primary);
   color: #fff;
-}
-
-/* =====================
-   alert و badge
-   ===================== */
-.alert {
-  border-radius: 12px;
-  border: none;
-}
-
-.badge {
-  border-radius: 8px;
-  padding: 5px 12px;
 }
 
 /* =====================
    فوتر
    ===================== */
-footer {
-  background: var(--dark) !important;
-  color: rgba(255,255,255,0.7);
+.site-footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.78);
   margin-top: 4rem;
+  padding: 20px 0;
 }
 
 /* =====================
-   کارت‌ها
+   موبایل
    ===================== */
-.card {
-  border: none !important;
-  border-radius: 16px !important;
-  box-shadow: var(--card-shadow);
-}
+@media (max-width: 767.98px) {
+  .hero {
+    padding: 42px 16px;
+  }
 
-/* =====================
-   جدول
-   ===================== */
-.table {
-  border-radius: 12px;
-  overflow: hidden;
-}
+  .hero h1 {
+    font-size: 2rem;
+  }
 
-.table thead th {
-  background: var(--light);
-  border: none;
-  font-weight: 600;
-  color: #555;
-  padding: 12px 16px;
-}
+  .product-detail-image,
+  .product-detail-icon {
+    height: 260px;
+  }
 
-.table tbody td {
-  border-color: #f0f0f0;
-  vertical-align: middle;
-}
-
-.table-hover tbody tr:hover {
-  background: #f8f9ff;
-}
-
-/* =====================
-   custom select
-   ===================== */
-.custom-select-wrapper {
-  position: relative;
-}
-
-.custom-select-wrapper select {
-  display: none;
-}
-
-.custom-select {
-  background: #fff;
-  border: 1.5px solid #e0e0e0;
-  border-radius: 10px;
-  padding: 11px 15px;
-  cursor: pointer;
-  color: #212529;
-  font-size: 0.95rem;
-  transition: border 0.2s;
-}
-
-.custom-select:hover {
-  border-color: var(--primary);
-}
-
-.custom-select-dropdown {
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
-  right: 0;
-  background: #fff;
-  border: 1.5px solid #e0e0e0;
-  border-radius: 10px;
-  z-index: 9999;
-  max-height: 220px;
-  overflow-y: auto;
-  display: none;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-}
-
-.custom-select-dropdown div {
-  padding: 10px 15px;
-  cursor: pointer;
-  color: #212529;
-  transition: background 0.15s;
-}
-
-.custom-select-dropdown div:hover {
-  background: #f0f4ff;
-  color: var(--primary);
-}
-
-.custom-select-open .custom-select-dropdown {
-  display: block;
-}
-
-.custom-select-open .custom-select {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(67,97,238,0.12);
+  .navbar .btn {
+    width: 100%;
+    text-align: center;
+  }
 }
