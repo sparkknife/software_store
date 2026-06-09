@@ -1,6 +1,6 @@
 <?php
 require_once 'auth.php';
-require_once '../config/db.php';
+require_once __DIR__ . '/../config/db.php';
 
 // حذف محصول باید قبل از خروجی HTML انجام شود تا redirect خراب نشود
 if (isset($_GET['delete'])) {

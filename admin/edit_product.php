@@ -1,6 +1,6 @@
 <?php
 require_once 'auth.php';
-require_once '../config/db.php';
+require_once __DIR__ . '/../config/db.php';
 
 // اگر آیدی محصول در آدرس نبود، به لیست محصولات برگرد
 if (!isset($_GET['id']) || intval($_GET['id']) <= 0) {

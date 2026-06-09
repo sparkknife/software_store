@@ -12,7 +12,8 @@ $cart_count = count($_SESSION['cart'] ?? []);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>فروشگاه نرم‌افزار</title>
+  <!-- BUG FIX: عنوان صفحه پویا - هر صفحه عنوان خودش رو داره -->
+  <title><?= htmlspecialchars($page_title ?? 'فروشگاه نرم‌افزار') ?></title>
 
   <!-- Bootstrap RTL و آیکن‌ها -->
   <link rel="stylesheet"
