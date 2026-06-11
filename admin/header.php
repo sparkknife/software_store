@@ -172,7 +172,9 @@ $product_pages = ['products.php', 'add_product.php', 'edit_product.php'];
     <div class="sidebar-brand">
       <a href="/software_store/admin/index.php" class="brand-link">
   <img src="/software_store/assets/images/logo-admin.svg"
-       height="38" alt="ادمین" style="display:block;margin:0 auto">
+       height="55"
+       alt="ادمین" 
+       style="display:block;margin:0 auto">
 </a>
     </div>
 
