@@ -36,7 +36,7 @@ body {
    Navbar
    ===================== */
 .site-navbar {
-  background: linear-gradient(135deg, #111827 0%, #1d4ed8 55%, #0f766e 100%) !important;
+  background: linear-gradient(344deg, #4b0066 0%, #042b2d 55%, #5c0f76 100%) !important;
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.18);
   padding: 14px 0;
 }

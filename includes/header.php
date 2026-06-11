@@ -35,7 +35,9 @@ $cart_count = count($_SESSION['cart'] ?? []);
   <div class="container">
   <a class="navbar-brand" href="/software_store/index.php">
   <img src="/software_store/assets/images/logo-navbar.svg"
-       height="46" alt="فروشگاه نرم‌افزار" style="display:block">
+       height="66" 
+       alt="لوگو" 
+       style="display:block">
 </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

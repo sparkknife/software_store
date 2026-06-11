@@ -5,8 +5,10 @@
       <div class="row g-4 footer-grid">
         <div class="col-md-4">
           <div class="footer-brand">
-            <img src="/software_store/assets/images/logo.svg" alt="" width="32" height="32">
-            <span>نرم‌افزار استور</span>
+            <img src="/software_store/assets/images/logo-vertical.svg" 
+            alt="لوگو فوتر" 
+            width="230">
+            
           </div>
           <p class="footer-about mt-3 mb-0">
             فروشگاه آنلاین نرم‌افزار با دانلود فوری پس از خرید.
