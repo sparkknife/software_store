@@ -12,8 +12,10 @@ $cart_count = count($_SESSION['cart'] ?? []);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- BUG FIX: عنوان صفحه پویا - هر صفحه عنوان خودش رو داره -->
-  <title><?= htmlspecialchars($page_title ?? 'فروشگاه نرم‌افزار') ?></title>
+ <title><?= htmlspecialchars($page_title ?? 'فروشگاه نرم‌افزار') ?></title>
+<link rel="icon" type="image/svg+xml" href="/software_store/assets/images/favicon.svg">
+  <meta name="description" content="خرید و دانلود فوری نرم‌افزارهای اورجینال — پرداخت امن، پنل کاربری ساده">
+  
 
   <!-- Bootstrap RTL و آیکن‌ها -->
   <link rel="stylesheet"
@@ -31,9 +33,10 @@ $cart_count = count($_SESSION['cart'] ?? []);
 <!-- نوار بالای سایت -->
 <nav class="navbar navbar-expand-lg navbar-dark site-navbar">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="/software_store/index.php">
-      <i class="bi bi-disc-fill me-1"></i> نرم‌افزار استور
-    </a>
+  <a class="navbar-brand" href="/software_store/index.php">
+  <img src="/software_store/assets/images/logo-navbar.svg"
+       height="46" alt="فروشگاه نرم‌افزار" style="display:block">
+</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#mainNavbar" aria-controls="mainNavbar"

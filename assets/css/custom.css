@@ -1,8 +1,6 @@
 /* =====================
-   فونت، رنگ‌ها و پایه
+   رنگ‌ها و پایه
    ===================== */
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
-
 :root {
   --primary: #2563eb;
   --primary-dark: #1e40af;
@@ -43,9 +41,27 @@ body {
   padding: 14px 0;
 }
 
-.navbar-brand {
-  font-size: 1.25rem;
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   color: #fff !important;
+  text-decoration: none;
+}
+
+.site-brand:hover {
+  color: #fff !important;
+  opacity: 0.92;
+}
+
+.site-brand-logo {
+  flex-shrink: 0;
+}
+
+.site-brand-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .navbar .btn {
@@ -94,8 +110,36 @@ body {
 }
 
 .hero p {
-  font-size: 1.05rem;
-  opacity: 0.86;
+  font-size: 1.08rem;
+  opacity: 0.9;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 1.4rem 0 1.2rem;
+}
+
+.btn-hero-cta {
+  padding: 10px 22px !important;
+  font-weight: 700;
+  border-radius: 8px !important;
+}
+
+.hero-trust {
+  font-size: 0.9rem;
+  opacity: 0.88;
+  margin-bottom: 1.5rem !important;
+}
+
+.hero-trust li {
+  display: inline-flex;
+  align-items: center;
 }
 
 .hero-search {
@@ -250,6 +294,12 @@ body {
   white-space: nowrap;
 }
 
+.product-card .price small {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
 /* =====================
    جزئیات محصول
    ===================== */
@@ -368,7 +418,60 @@ body {
   background: var(--dark);
   color: rgba(255,255,255,0.78);
   margin-top: 4rem;
-  padding: 20px 0;
+  padding: 48px 0 0;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.footer-about {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+  max-width: 280px;
+}
+
+.footer-heading {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 14px;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.78);
+  text-decoration: none;
+  font-size: 0.92rem;
+  display: inline-block;
+  padding: 4px 0;
+  transition: color 0.15s;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-features li {
+  font-size: 0.92rem;
+  padding: 4px 0;
+  color: rgba(255,255,255,0.7);
+}
+
+.footer-bottom {
+  margin-top: 36px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.45);
 }
 
 /* =====================

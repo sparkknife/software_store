@@ -171,9 +171,9 @@ $product_pages = ['products.php', 'add_product.php', 'edit_product.php'];
   <aside class="app-sidebar bg-dark sidebar-dark shadow" data-bs-theme="dark">
     <div class="sidebar-brand">
       <a href="/software_store/admin/index.php" class="brand-link">
-        <i class="bi bi-compact-disc brand-image opacity-75 shadow"></i>
-        <span class="brand-text fw-light me-2">نرم‌افزار استور</span>
-      </a>
+  <img src="/software_store/assets/images/logo-admin.svg"
+       height="38" alt="ادمین" style="display:block;margin:0 auto">
+</a>
     </div>
 
     <div class="sidebar-wrapper">

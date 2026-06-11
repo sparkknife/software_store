@@ -1,0 +1,83 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <style>.ft{font-family:Tahoma, 'B Nazanin', Arial, sans-serif;}</style>
+  <defs>
+    <linearGradient id="g1-sq" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="g2-sq" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <radialGradient id="radial-sq" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#00d4ff" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.04"/>
+    </radialGradient>
+    <filter id="glow1-sq" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow2-sq" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <!-- زمینه پانل -->
+  <rect width="200" height="200" rx="28"
+    fill="#090f1c" stroke="url(#g1-sq)" stroke-width="1.5" stroke-opacity="0.5"/>
+  <circle cx="10"  cy="10"  r="55" fill="#00d4ff" fill-opacity="0.04"/>
+  <circle cx="190" cy="190" r="55" fill="#7c3aed" fill-opacity="0.06"/>
+  <!-- ═══ ICON-sq ═══ -->
+  <g transform="translate(100.0,90.0)">
+    <!-- هاله -->
+    <circle cx="0" cy="0" r="54"
+      fill="url(#radial-sq)" filter="url(#glow2-sq)"/>
+
+    <!-- شش‌ضلعی -->
+    <polygon points="0.0,-50.0 43.3,-25.0 43.3,25.0 0.0,50.0 -43.3,25.0 -43.3,-25.0"
+      fill="url(#radial-sq)" opacity="0.45"/>
+    <polygon points="0.0,-50.0 43.3,-25.0 43.3,25.0 0.0,50.0 -43.3,25.0 -43.3,-25.0"
+      fill="none" stroke="url(#g1-sq)" stroke-width="1.8" opacity="0.8"/>
+
+    <!-- دندان - مختصات relative به مرکز (scale داخلی ۲۸) -->
+    <g transform="scale(1.7857)">
+      <!-- بدنه دندان -->
+      <path d="M -10,-14 C -7,-21 -3,-21 0,-17
+               C 3,-21 7,-21 10,-14
+               C 14,-7 13,5 8,11
+               C 5,15 3,12 0,7
+               C -3,12 -5,15 -8,11
+               C -13,5 -14,-7 -10,-14 Z"
+        fill="url(#g1-sq)" fill-opacity="0.22"
+        stroke="url(#g1-sq)" stroke-width="2.2"
+        stroke-linejoin="round"/>
+
+      <!-- خطوط مش -->
+      <path d="M 0,-17 L 0,7 M -10,-3 H 10 M -8,-10 L 8,2"
+        fill="none" stroke="#7c3aed" stroke-width="0.9" stroke-opacity="0.55"/>
+
+      <!-- حلقه اسکنر -->
+      <path d="M -15,0 C -11,9 11,9 15,0"
+        fill="none" stroke="#06b6d4" stroke-width="1.6"
+        stroke-linecap="round" stroke-dasharray="3,2.5"/>
+
+      <!-- ستاره مرکز -->
+      <path d="M 0,-9 L 1.8,-4 L 7,-3 L 1.8,-2 L 0,3 L -1.8,-2 L -7,-3 L -1.8,-4 Z"
+        fill="url(#g2-sq)" filter="url(#glow1-sq)"/>
+
+      <!-- نقاط -->
+      <circle cx="-10" cy="-14" r="2.2" fill="#00d4ff" filter="url(#glow1-sq)"/>
+      <circle cx=" 10" cy="-14" r="2.2" fill="#00d4ff" filter="url(#glow1-sq)"/>
+      <circle cx="  0" cy="-19" r="2.6" fill="#06b6d4" filter="url(#glow1-sq)"/>
+      <circle cx="  0" cy="  7" r="2"   fill="#7c3aed" filter="url(#glow1-sq)"/>
+    </g>
+  </g>
+  <line x1="40" y1="152" x2="160" y2="152"
+    stroke="url(#g1-sq)" stroke-width="1" opacity="0.35"/>
+  <text class="ft" x="100" y="177"
+    text-anchor="middle" font-size="19" font-weight="700"
+    fill="#f1f5f9">فروشگاه نرم‌افزار</text>
+  <text x="100" y="194"
+    text-anchor="middle" font-family="monospace" font-size="9"
+    fill="#00d4ff" letter-spacing="2" opacity="0.7">DENTAL LAB SOFTWARE</text>
+</svg>

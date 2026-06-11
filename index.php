@@ -1,4 +1,5 @@
 <?php
+$page_title = 'نرم‌افزار استور | دانلود فوری نرم‌افزار';
 require_once 'config/db.php';
 require_once 'includes/header.php';
 
@@ -55,10 +56,27 @@ $products = mysqli_query(
 <section class="hero mb-4">
   <div class="container">
     <span class="hero-kicker">
-      <i class="bi bi-stars me-1"></i> فروشگاه فایل‌های نرم‌افزاری
+      <i class="bi bi-stars me-1"></i> نرم‌افزار اورجینال · دانلود آنی · پشتیبانی فارسی
     </span>
-    <h1><i class="bi bi-disc-fill me-2"></i>فروشگاه نرم‌افزار</h1>
-    <p class="lead">نرم‌افزارهای موردنیازت رو سریع پیدا کن و بعد از خرید دانلود کن.</p>
+    <h1>هر نرم‌افزاری که نیاز داری، همین‌جا</h1>
+    <p class="lead">بعد از خرید، لینک دانلود مستقیم در پنل کاربری فعال می‌شود.</p>
+
+    <div class="hero-actions">
+      <a href="#products" class="btn btn-warning btn-hero-cta">
+        <i class="bi bi-grid-fill me-1"></i> مشاهده محصولات
+      </a>
+      <?php if(!isset($_SESSION['user_id'])): ?>
+        <a href="/software_store/register.php" class="btn btn-outline-light btn-hero-cta">
+          <i class="bi bi-person-plus me-1"></i> ثبت‌نام رایگان
+        </a>
+      <?php endif; ?>
+    </div>
+
+    <ul class="hero-trust list-unstyled d-flex flex-wrap justify-content-center gap-3 mb-0">
+      <li><i class="bi bi-shield-check me-1"></i> پرداخت امن</li>
+      <li><i class="bi bi-cloud-download me-1"></i> دانلود فوری</li>
+      <li><i class="bi bi-headset me-1"></i> پشتیبانی فارسی</li>
+    </ul>
 
     <form method="GET" class="hero-search mx-auto">
       <div class="input-group">
@@ -79,13 +97,13 @@ $products = mysqli_query(
 <!-- دکمه‌های فیلتر دسته‌بندی -->
 <section class="mb-4 d-flex flex-wrap gap-2 align-items-center">
   <a href="<?= store_index_url(['search' => $search]) ?>"
-     class="btn btn-sm category-btn <?= $selected_cat == 0 ? 'btn-dark' : 'btn-outline-dark' ?>">
+     class="btn btn-sm category-btn <?= $selected_cat == 0 ? 'btn-primary' : 'btn-outline-primary' ?>">
     <i class="bi bi-grid-fill me-1"></i> همه
   </a>
 
   <?php while($cat = mysqli_fetch_assoc($categories)): ?>
     <a href="<?= store_index_url(['cat' => (int)$cat['id'], 'search' => $search]) ?>"
-       class="btn btn-sm category-btn <?= $selected_cat == $cat['id'] ? 'btn-dark' : 'btn-outline-dark' ?>">
+       class="btn btn-sm category-btn <?= $selected_cat == $cat['id'] ? 'btn-primary' : 'btn-outline-primary' ?>">
       <?= htmlspecialchars($cat['name']) ?>
     </a>
   <?php endwhile; ?>
@@ -106,6 +124,7 @@ $products = mysqli_query(
 <?php endif; ?>
 
 <!-- لیست محصولات -->
+<section id="products">
 <?php if($total_products === 0): ?>
   <div class="empty-state alert alert-info text-center py-5">
     <i class="bi bi-search"></i>
@@ -140,7 +159,7 @@ $products = mysqli_query(
               <?= htmlspecialchars(mb_substr($short_description, 0, 80)) ?><?= mb_strlen($short_description) > 80 ? '...' : '' ?>
             </p>
             <div class="d-flex justify-content-between align-items-center mt-3 gap-2">
-              <span class="price"><?= number_format($p['price']) ?> ت</span>
+              <span class="price"><?= number_format($p['price']) ?> <small>تومان</small></span>
               <a href="product.php?id=<?= $p['id'] ?>" class="btn btn-primary btn-sm px-3">
                 <i class="bi bi-eye me-1"></i> مشاهده
               </a>
@@ -181,5 +200,6 @@ $products = mysqli_query(
     </nav>
   <?php endif; ?>
 <?php endif; ?>
+</section>
 
 <?php require_once 'includes/footer.php'; ?>

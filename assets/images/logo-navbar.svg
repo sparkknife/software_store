@@ -1,0 +1,88 @@
+<svg width="340" height="64" viewBox="0 0 340 64" xmlns="http://www.w3.org/2000/svg">
+  <style>.ft{font-family:Tahoma, 'B Nazanin', Arial, sans-serif;}</style>
+  <defs>
+    <linearGradient id="g1-nav" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="g2-nav" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <radialGradient id="radial-nav" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#00d4ff" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.04"/>
+    </radialGradient>
+    <filter id="glow1-nav" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow2-nav" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <!-- ═══ ICON-nav ═══ -->
+  <g transform="translate(307.0,32.0)">
+    <!-- هاله -->
+    <circle cx="0" cy="0" r="30"
+      fill="url(#radial-nav)" filter="url(#glow2-nav)"/>
+
+    <!-- شش‌ضلعی -->
+    <polygon points="0.0,-26.0 22.5,-13.0 22.5,13.0 0.0,26.0 -22.5,13.0 -22.5,-13.0"
+      fill="url(#radial-nav)" opacity="0.45"/>
+    <polygon points="0.0,-26.0 22.5,-13.0 22.5,13.0 0.0,26.0 -22.5,13.0 -22.5,-13.0"
+      fill="none" stroke="url(#g1-nav)" stroke-width="1.8" opacity="0.8"/>
+
+    <!-- دندان - مختصات relative به مرکز (scale داخلی ۲۸) -->
+    <g transform="scale(0.9286)">
+      <!-- بدنه دندان -->
+      <path d="M -10,-14 C -7,-21 -3,-21 0,-17
+               C 3,-21 7,-21 10,-14
+               C 14,-7 13,5 8,11
+               C 5,15 3,12 0,7
+               C -3,12 -5,15 -8,11
+               C -13,5 -14,-7 -10,-14 Z"
+        fill="url(#g1-nav)" fill-opacity="0.22"
+        stroke="url(#g1-nav)" stroke-width="2.2"
+        stroke-linejoin="round"/>
+
+      <!-- خطوط مش -->
+      <path d="M 0,-17 L 0,7 M -10,-3 H 10 M -8,-10 L 8,2"
+        fill="none" stroke="#7c3aed" stroke-width="0.9" stroke-opacity="0.55"/>
+
+      <!-- حلقه اسکنر -->
+      <path d="M -15,0 C -11,9 11,9 15,0"
+        fill="none" stroke="#06b6d4" stroke-width="1.6"
+        stroke-linecap="round" stroke-dasharray="3,2.5"/>
+
+      <!-- ستاره مرکز -->
+      <path d="M 0,-9 L 1.8,-4 L 7,-3 L 1.8,-2 L 0,3 L -1.8,-2 L -7,-3 L -1.8,-4 Z"
+        fill="url(#g2-nav)" filter="url(#glow1-nav)"/>
+
+      <!-- نقاط -->
+      <circle cx="-10" cy="-14" r="2.2" fill="#00d4ff" filter="url(#glow1-nav)"/>
+      <circle cx=" 10" cy="-14" r="2.2" fill="#00d4ff" filter="url(#glow1-nav)"/>
+      <circle cx="  0" cy="-19" r="2.6" fill="#06b6d4" filter="url(#glow1-nav)"/>
+      <circle cx="  0" cy="  7" r="2"   fill="#7c3aed" filter="url(#glow1-nav)"/>
+    </g>
+  </g>
+
+  <!-- خط عمودی جدا کننده -->
+  <line x1="272" y1="12" x2="272" y2="52"
+    stroke="url(#g1-nav)" stroke-width="0.8" opacity="0.35"/>
+
+  <!-- نام اصلی -->
+  <text class="ft" x="260" y="31"
+    text-anchor="end" font-size="21" font-weight="700"
+    fill="#f1f5f9">فروشگاه نرم‌افزار</text>
+
+  <!-- خط زیر نام -->
+  <line x1="90" y1="38" x2="260" y2="38"
+    stroke="#00d4ff" stroke-width="0.7" opacity="0.35"/>
+
+  <!-- زیرنویس -->
+  <text class="ft" x="260" y="52"
+    text-anchor="end" font-size="10.5" font-weight="600"
+    fill="#00d4ff" opacity="0.88">نرم‌افزارهای لابراتوار دیجیتال دندانپزشکی</text>
+</svg>
